@@ -4,7 +4,7 @@ interface Config {
 }
 
 const config: Config = {
-    port: 3000,
+    port: 4000,
     nodeEnv: 'development'
 };
 

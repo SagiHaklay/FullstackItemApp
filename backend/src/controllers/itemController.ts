@@ -53,7 +53,8 @@ export const updateItem = async (req: Request, res: Response, next: NextFunction
         }
         const updatedItem = {
             ...req.body,
-            id
+            id,
+            createdAt: items[idx]?.createdAt
         };
         items[idx] = updatedItem;
         await db.write();
