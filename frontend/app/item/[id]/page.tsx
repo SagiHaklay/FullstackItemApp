@@ -1,5 +1,6 @@
 import { getItemById } from "@/app/lib/data";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export default async function Page({
     params
@@ -8,11 +9,14 @@ export default async function Page({
 }) {
     const { id } = await params;
     const item = await getItemById(id);
+    if (!item) {
+        notFound();
+    }
 
     return (
-        <div>
+        <div className="flex flex-col p-4 gap-4">
             <div>
-                <Link href={`/item/${id}/edit`}>Edit</Link>
+                <Link className="bg-blue-500 text-white rounded-md p-2" href={`/item/${id}/edit`}>Edit</Link>
             </div>
             <h1>{item.title}</h1>
             <p>

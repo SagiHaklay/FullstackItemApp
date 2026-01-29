@@ -1,6 +1,6 @@
 'use server'
 
-import { revalidatePath } from "next/cache";
+import { refresh, revalidatePath } from "next/cache";
 import { Item } from "./Item";
 import { redirect } from "next/navigation";
 
@@ -54,6 +54,7 @@ export const deleteItem = async (id: string) => {
     await fetch(`${apiUrl}/${id}`, {
         method: 'DELETE'
     });
-    revalidatePath('/');
-    redirect('/');
+    // revalidatePath('/');
+    // redirect('/');
+    refresh();
 }

@@ -3,10 +3,12 @@ import { Item } from "../models/Item";
 
 
 type Data = {
-    items: Item[]
+    items: Item[],
+    idCounter: number
 }
 const defaultData: Data = {
-    items: []
+    items: [],
+    idCounter: 1
 };
 
 export const getDB = async () => {

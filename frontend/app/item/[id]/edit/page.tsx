@@ -1,5 +1,6 @@
 import { getItemById, updateItem } from "@/app/lib/data";
 import { ItemForm } from "../../ui/item-form";
+import { notFound } from "next/navigation";
 
 export default async function Page({
     params
@@ -8,6 +9,9 @@ export default async function Page({
 }) {
     const { id } = await params;
     const item = await getItemById(id);
+    if (!item) {
+        notFound();
+    }
 
     return (
         <div>

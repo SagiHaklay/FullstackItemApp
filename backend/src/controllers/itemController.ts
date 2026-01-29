@@ -32,7 +32,7 @@ export const createItem = async (req: Request, res: Response, next: NextFunction
         
         const newItem = {
             ...req.body,
-            id: items.length + 1,
+            id: db.data.idCounter++,
             createdAt: new Date(Date.now())
         };
         items.push(newItem);
@@ -74,7 +74,7 @@ export const deleteItemById = async (req: Request, res: Response, next: NextFunc
         }
         items.splice(idx, 1);
         await db.write();
-        res.status(200);
+        res.status(200).end();
     } catch (error) {
         next(error);
     }
