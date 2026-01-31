@@ -10,8 +10,11 @@ export function ItemLink({
 
     return (
         <div className="flex gap-6 items-center">
-            <Link href={`/item/${item.id}`}>
+            <span>
                 {item.title}
+            </span>
+            <Link href={`/item/${item.id}`} className="bg-blue-400 text-white rounded-md p-2">
+                Go to page
             </Link>
             <button className="bg-red-400 text-white rounded-md p-2" type="button" onClick={async () => {
                 await deleteItem(`${item.id}`);
