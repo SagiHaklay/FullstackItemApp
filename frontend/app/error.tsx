@@ -7,8 +7,8 @@ export default function Error({
 }) {
 
     return (
-        <div>
-            <h2>Something went wrong!</h2>
+        <div className="p-4">
+            <h2 className="text-lg font-bold">Something went wrong!</h2>
             <p>{error.message}</p>
         </div>
     );

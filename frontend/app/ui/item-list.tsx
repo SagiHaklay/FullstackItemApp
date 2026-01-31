@@ -25,7 +25,7 @@ export function ItemList({
     }) : filteredItems;
     return (
         <>
-            <div className="flex gap-3 items-center">
+            <div className="flex flex-col md:flex-row gap-4 items-center">
                 <input className="border-1 border-gray-300 rounded-md p-1" type="text"
                     placeholder="search item..."
                     value={searchQuery}

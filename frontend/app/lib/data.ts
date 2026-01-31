@@ -12,9 +12,15 @@ export async function getItems(): Promise<Item[]> {
     return items;
 }
 
-export async function getItemById(id: string): Promise<Item> {
-    const data = await fetch(`${apiUrl}/${id}`);
-    return await data.json();
+export async function getItemById(id: string): Promise<Item | null> {
+    try {
+        const data = await fetch(`${apiUrl}/${id}`);
+        if (data.status === 404) return null;
+        return await data.json();
+    } catch (error) {
+        return null;
+    }
+    
 }
 
 export const createItem = async (formData: FormData) => {
